@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto_Entregable.Vistas.ProductoDetalle"
+             Title="Detalle del Producto"
+             NavigationPage.HasNavigationBar="False">
+    <ScrollView>
+        <StackLayout Padding="20">
+            <!-- Header with back button and product name -->
+            <Grid Margin="0,0,0,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Image Source="https://i.postimg.cc/283j5Jfh/flecha-izquierda.png"
+                       HeightRequest="20"
+                       WidthRequest="20">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackButtonTapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Column="1"
+                       Text="{Binding Nombre}"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       VerticalOptions="Center"/>
+            </Grid>
+            <!-- Product Image -->
+            <Image Source="{Binding ImagenUrl}"
+                   HeightRequest="200"
+                   Aspect="AspectFit"
+                   Margin="0,0,0,20"/>
+            <!-- Product Details -->
+            <Label Text="Descripción"
+                   FontSize="18"
+                   FontAttributes="Bold"/>
+            <Label Text="{Binding Descripcion}"
+                   Margin="0,0,0,20"/>
+            <Label Text="Precio"
+                   FontSize="18"
+                   FontAttributes="Bold"/>
+            <Label Text="{Binding Precio, StringFormat='${0:F2}'}"
+                   TextColor="Green"
+                   FontSize="22"
+                   Margin="0,0,0,20"/>
+            <Label Text="Cantidad disponible"
+                   FontSize="18"
+                   FontAttributes="Bold"/>
+            <Label Text="{Binding CantidadDisponible, StringFormat='{0} unidades'}"
+                   Margin="0,0,0,20"/>
+            <!-- Add to Cart Button -->
+            <Button Text="Agregar al Carrito"
+                    BackgroundColor="#4CAF50"
+                    TextColor="White"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    Margin="0,20,0,0"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

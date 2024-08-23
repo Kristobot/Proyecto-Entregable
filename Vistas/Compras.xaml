@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto_Entregable.Vistas.Compras"
+             Title="Compras"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout>
+        <Grid RowDefinitions="Auto,*,100"
+              VerticalOptions="FillAndExpand">
+            <StackLayout Orientation="Horizontal">
+                <Image Source="https://i.postimg.cc/283j5Jfh/flecha-izquierda.png"
+                       HeightRequest="20">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnBackButtonTapped"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Text="Frutas y Vegetales"
+                       VerticalOptions="Center"
+                       FontSize="18"
+                       TextColor="#3D3D3D"
+                       Margin="30,0,0,0"/>
+                <Image Source="https://i.postimg.cc/Ls2rJYZw/analitica.png"
+                       HeightRequest="30"
+                       HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            <CollectionView Grid.Row="1" 
+                            ItemsSource="{Binding Productos}">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical" 
+                                     Span="2"
+                                     HorizontalItemSpacing="10"
+                                     VerticalItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame Padding="10" Margin="5">
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnProductTapped"
+                                                      CommandParameter="{Binding .}"/>
+                            </Frame.GestureRecognizers>
+                            <StackLayout>
+                                <Image Source="{Binding ImagenUrl}"
+                                       HeightRequest="100"
+                                       Aspect="AspectFit" />
+                                <Label Text="{Binding Nombre}"
+                                       FontSize="16"
+                                       HorizontalOptions="Center" />
+                                <Label Text="{Binding Precio, StringFormat='${0:F2}'}"
+                                       TextColor="Green"
+                                       HorizontalOptions="Center" />
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+            <StackLayout Grid.Row="2"
+                         BackgroundColor="#050506">
+                <!-- Bottom content -->
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+</ContentPage>

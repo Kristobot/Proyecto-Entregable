@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Proyecto_Entregable.Vistas.PaginaDeIncio"
+             Title="Iniciar Sesión"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+        <Image Source="https://i.postimg.cc/kGV3dRjt/logo.png"
+               HeightRequest="100"
+               HorizontalOptions="Center" />
+
+        <Entry x:Name="UsernameEntry"
+               Placeholder="Usuario"
+               PlaceholderColor="Gray"
+               Keyboard="Email"
+               TextColor="Black"
+               BackgroundColor="#E5E5E5"
+               HeightRequest="40"
+               Margin="0,20,0,0" />
+
+        <Entry x:Name="PasswordEntry"
+               Placeholder="Contraseña"
+               IsPassword="True"
+               PlaceholderColor="Gray"
+               TextColor="Black"
+               BackgroundColor="#E5E5E5"
+               HeightRequest="40" />
+
+        <Button Text="Iniciar Sesión"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                HeightRequest="50"
+                CornerRadius="10"
+                Clicked="OnLoginButtonClicked" />
+
+        <Label Text="¿No tienes una cuenta?"
+               HorizontalOptions="Center"
+               VerticalOptions="End"
+               Margin="0,20,0,0" />
+        <Button Text="Registrarse"
+                TextColor="#4CAF50"
+                BackgroundColor="Transparent"
+                HeightRequest="50" />
+    </StackLayout>
+</ContentPage>
